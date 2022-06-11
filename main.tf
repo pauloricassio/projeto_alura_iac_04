@@ -20,6 +20,6 @@ resource "aws_instance" "app_server" {
   key_name = "access_terraform" 
 
   tags = {
-    Name = "Ubuntu"
+    Name = "Terraform Ansible Python"
   }
 }
