@@ -6,8 +6,8 @@
 *.tfstate
 *.tfstate.*
 
-# chave ssh
+# Chave ssh
 *.pem
 
-# anotacoes
+# Anotacoes
 anotacoes
