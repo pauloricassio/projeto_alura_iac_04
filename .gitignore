@@ -2,12 +2,12 @@
 # Local .terraform directories
 **/.terraform/*
 
-# .tfstate files
+# .tfstate files #
 *.tfstate
 *.tfstate.*
 
 # Chave ssh
 *.pem
 
-# Anotacoes
+# Anotacoes #
 anotacoes
