@@ -8,3 +8,6 @@
 
 # chave ssh
 *.pem
+
+# anotacoes
+anotacoes
