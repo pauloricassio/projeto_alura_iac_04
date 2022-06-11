@@ -17,7 +17,7 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0aeb7c931a5a61206"
   instance_type = "t2.micro"
-  key_name = "access_terraform"
+  key_name = "access_terraform" 
 
   tags = {
     Name = "Ubuntu"
