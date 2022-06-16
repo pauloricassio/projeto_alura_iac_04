@@ -5,3 +5,8 @@ module "aws-dev" {
     chave = "Iac-DEV"
     amis = "ami-0aeb7c931a5a61206"
 }
+
+output "IP" {
+  value = module.aws-dev.IP_Publico
+  
+}
