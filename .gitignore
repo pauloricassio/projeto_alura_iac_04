@@ -8,6 +8,9 @@
 
 # Chave ssh ##
 *.pem
+*IaC-*
+*Iac-*
 
 # Anotacoes ##
 anotacoes
+
