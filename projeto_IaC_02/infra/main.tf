@@ -82,7 +82,7 @@ resource "aws_lb_target_group" "target_group" {
   vpc_id   = aws_default_vpc.default.id
 }
 
-#Recurso para definir a VPC que será usada
+#Recurso para definir a VPC que será usada:
 
 resource "aws_default_vpc" "default" {
 
