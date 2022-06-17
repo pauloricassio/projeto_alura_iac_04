@@ -29,3 +29,24 @@ variable "minimo" {
 variable "maximo" {
     type = number  
 }
+
+variable "vpc" {
+    type = string
+  
+}
+
+variable "loadbalancer" {
+    type = string
+}
+
+variable "target_group" {
+    type = string
+}
+
+variable "subnet_1" {
+    type = string
+}
+
+variable "subnet_2" {
+    type = string
+}

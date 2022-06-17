@@ -38,7 +38,7 @@ resource "aws_key_pair" "chaveSSH" {
 #Recurso para criação de autoscaling: 
 
 resource "aws_autoscaling_group" "grupo_autoscaling" {
-  availability_zones = [ "${var.regiao_aws}a", "${var.regiao_aws}b" ]
+  availability_zones = [ "${var.regiao_aws}a", "${var.regiao_aws}b" ] 
   name = var.grupo_autoscaling
   max_size = var.maximo
   min_size = var.minimo
@@ -53,23 +53,30 @@ resource "aws_autoscaling_group" "grupo_autoscaling" {
 
 resource "aws_default_subnet" "subnet_1" {
   availability_zone = "${var.regiao_aws}a"
+  tags = {
+    Name = "${var.subnet_1}"
+  }
 }
 
 resource "aws_default_subnet" "subnet_2" {
   availability_zone = "${var.regiao_aws}b"
+  tags = {
+    Name = "${var.subnet_2}"
+  }
 }
 
 #Recurso para criação de loadbalancer:
 
 resource "aws_lb" "loadbalancer" {
+  name = var.loadbalancer
   internal = false
-  subnets = [ ws_default_subnet.subnet_1.id, aws_default_subnet.subnet_2.id ]
+  subnets = [ aws_default_subnet.subnet_1.id, aws_default_subnet.subnet_2.id ]
 }
 
 #Recurso para definir o grupo alvo do load balancer:
 
 resource "aws_lb_target_group" "target_group" {
-  name     = "tf-api-lb-tg"
+  name     = var.target_group
   port     = "8000"
   protocol = "HTTP"
   vpc_id   = aws_default_vpc.default.id
@@ -89,7 +96,7 @@ resource "aws_lb_listener" "entry_lb" {
   protocol = "HTTP"
   default_action {
     type = "forward"
-    target_group_arn = aws_lb_target_group.target_group.arn 
+    target_group_arn = aws_lb_target_group.target_group.arn
   }
 
 }
