@@ -50,3 +50,11 @@ variable "subnet_1" {
 variable "subnet_2" {
     type = string
 }
+
+variable "terraform-escala" {
+    type = string
+}
+
+variable "producao" {
+    type = bool  
+}
